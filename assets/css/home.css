@@ -1,0 +1,33 @@
+#indexHeader{
+    margin-top: 10%;
+    opacity: 0;
+    transition: all 3s;
+    display: flex;
+    flex-direction: column;
+}
+
+#indexTitle{
+    display: flex;
+    align-self: center;
+    font-family: Ephesis;
+    color: rgb(205, 221, 255);
+    font-size: 80px;
+    text-align: center;
+    cursor: default;
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+
+#indexTitle:hover{
+    color: rgb(217, 228, 253);
+}
+
+#indexSearchBarDiv{
+    display: flex;
+    align-self: center;
+}
+
+#indexHeader nav{
+    margin-top: 30px;
+    text-align: center;
+}

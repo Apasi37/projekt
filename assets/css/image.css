@@ -1,0 +1,160 @@
+
+.imageContent{
+    display: flex;
+    flex-direction: row;
+}
+
+.imageView{
+    width: 80%;
+}
+
+.slide{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide a {
+    color: white;
+    font-size: 40px;
+    padding: 20px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.image{
+    margin-top: 80px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#imageInfo{
+    background-color: rgb(46, 53, 65);  
+}
+
+#imageArtist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#imageArtist h1{
+    color: rgb(205, 221, 255);
+    margin: 10px;
+}
+
+#imageArtist div{
+    margin: 10px
+}
+
+#imageRatings{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: rgb(205, 221, 255);
+}
+
+#imageRatings div{
+    margin: 10px;
+
+}
+
+#imageDesc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#desc{
+    width: 50%;
+    min-width: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(205, 221, 255);
+}
+
+#imageComments{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#commentCount{
+    font-size: 20px;
+    color: rgb(205, 221, 255);
+}
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment{
+    background-color: rgb(71, 79, 92);  
+    margin: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    width: 70%;
+    color: rgb(205, 221, 255);
+}
+
+.commentProfile{
+    display: flex;
+}
+
+.commentToggle{
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.commentToggle.active{
+    content: "+";
+}
+
+.commentText{
+    margin: 10px;
+}
+
+.commentText.active{
+    display:none;
+}
+
+.imageRecomended{
+    background-color: rgb(62, 73, 87);
+    width: 20%;
+}
+
+.imageRecomended h1{
+    margin: 20px;
+    color: rgb(205, 221, 255);
+}
+
+#recomended{
+    margin: 10px;
+}
+
+.imageSmaller{
+    margin: 2px;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(205, 221, 255);
+    border-radius: 10px;
+    transition: all 0.3s;
+    overflow: hidden;
+    max-width: 160px;
+    max-height: 160px;
+}
+
+.imageSmaller:hover{
+    transform: scale(1.1,1.1);
+}

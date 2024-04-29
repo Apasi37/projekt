@@ -49,75 +49,7 @@ body{
     color: black;
 }
 
-
-.aButton{
-    display: inline-block;
-    text-decoration: none;
-    color: rgb(205, 221, 255);
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px;
-    font-size: 20px;
-    transition: all 0.3s;
-    cursor:pointer;
-}
-
-.aButton:hover{
-    color: rgb(238, 242, 253);
-}
-
-.aButton:after{
-    display: block;
-    content: '';
-    border-bottom: 2px solid rgb(211, 221, 255);
-    transform: scaleX(0);
-    transition: all 0.3s;
-}
-
-.aButton:hover:after{
-    transform: scaleX(1);
-}
-
-/* --------------------INDEX-------------------- */
-
-#indexHeader{
-    margin-top: 10%;
-    opacity: 0;
-    transition: all 3s;
-    display: flex;
-    flex-direction: column;
-}
-
-#indexTitle{
-    display: flex;
-    align-self: center;
-    font-family: Ephesis;
-    color: rgb(205, 221, 255);
-    font-size: 80px;
-    text-align: center;
-    cursor: default;
-    margin-bottom: 30px;
-    transition: all 0.3s;
-}
-
-#indexTitle:hover{
-    color: rgb(217, 228, 253);
-}
-
-#indexSearchBarDiv{
-    display: flex;
-    align-self: center;
-}
-
-#indexHeader nav{
-    margin-top: 30px;
-    text-align: center;
-}
-
-
-/* --------------------POSTS-------------------- */
-
-#postsHeader h1 a{
+#header h1 a{
     font-family: Ephesis;
     font-size: 40px;
     text-decoration: none;
@@ -126,11 +58,11 @@ body{
     transition: all 0.3s;
 }
 
-#postsHeader h1 a:hover{
+#header h1 a:hover{
     color: rgb(217, 228, 253);
 }
 
-#postsHeader{
+#header{
     position: fixed;
     display: flex;
     align-items: center;
@@ -232,6 +164,7 @@ body{
     display: block;
 }
 
+
 .headerForm{
     display: flex;
     flex-direction: column;
@@ -265,204 +198,34 @@ body{
 }
 
 
-.content{
-    display: flex;
-    flex-direction: column;
-}
-
-.imageContent{
-    display: flex;
-    flex-direction: row;
-}
-
-.contentImages{
-    margin: 80px 10px 0px 40px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.imageSmall{
+.aButton{
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(205, 221, 255);
+    padding: 10px;
+    border-radius: 5px;
     margin: 5px;
-    background-color: white;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(205, 221, 255);
-    border-radius: 10px;
-    transition: all 0.3s;
-    overflow: hidden;
-    max-width: 300px;
-    max-height: 300px;
-}
-
-.imageSmall:hover{
-    transform: scale(1.1,1.1);
-}
-
-.pagination{
-    text-align: center;
-    margin: 20px;
-}
-
-/* --------------------IMAGEVIEW-------------------- */
-
-.imageView{
-    width: 80%;
-}
-
-.slide{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.slide a {
-    color: white;
-    font-size: 40px;
-    padding: 20px;
-    cursor: pointer;
-    margin: 20px;
-}
-
-.image{
-    margin-top: 80px;
-    margin-bottom: 20px;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-#imageInfo{
-    background-color: rgb(46, 53, 65);  
-}
-
-#imageArtist{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#imageArtist h1{
-    color: rgb(205, 221, 255);
-    margin: 10px;
-}
-
-#imageArtist div{
-    margin: 10px
-}
-
-#imageRatings{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: rgb(205, 221, 255);
-}
-
-#imageRatings div{
-    margin: 10px;
-
-}
-
-#imageDesc{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#desc{
-    width: 50%;
-    min-width: 500px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color: rgb(205, 221, 255);
-}
-
-#imageComments{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#commentCount{
     font-size: 20px;
-    color: rgb(205, 221, 255);
-}
-
-.comments{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.comment{
-    background-color: rgb(71, 79, 92);  
-    margin: 20px;
-    padding: 10px;
-    border-radius: 4px;
-    width: 70%;
-    color: rgb(205, 221, 255);
-}
-
-.commentProfile{
-    display: flex;
-}
-
-.commentToggle{
-    cursor: pointer;
-    font-size: 30px;
-    padding: 10px;
-}
-
-.commentToggle.active{
-    content: "+";
-}
-
-.commentText{
-    margin: 10px;
-}
-
-.commentText.active{
-    display:none;
-}
-
-.imageRecomended{
-    background-color: rgb(62, 73, 87);
-    width: 20%;
-}
-
-.imageRecomended h1{
-    margin: 20px;
-    color: rgb(205, 221, 255);
-}
-
-#recomended{
-    margin: 10px;
-}
-
-.imageSmaller{
-    margin: 2px;
-    background-color: white;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(205, 221, 255);
-    border-radius: 10px;
     transition: all 0.3s;
-    overflow: hidden;
-    max-width: 160px;
-    max-height: 160px;
+    cursor:pointer;
 }
 
-.imageSmaller:hover{
-    transform: scale(1.1,1.1);
+.aButton:hover{
+    color: rgb(238, 242, 253);
 }
 
+.aButton:after{
+    display: block;
+    content: '';
+    border-bottom: 2px solid rgb(211, 221, 255);
+    transform: scaleX(0);
+    transition: all 0.3s;
+}
 
+.aButton:hover:after{
+    transform: scaleX(1);
+}
 
-/* --------------------FOOTER-------------------- */
 footer{
     background-color: rgb(35, 38, 43);
     height: 100px;
@@ -490,13 +253,6 @@ footer{
     text-decoration: none;
     color: rgb(205, 221, 255);
 }
-
-
-
-
-
-
-
 
 @media screen and (max-width: 1000px) {
     header{

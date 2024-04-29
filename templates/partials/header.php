@@ -1,14 +1,23 @@
+<?php
+    require_once('../_inc/classes/Page.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <?php
+        $page_name = basename($_SERVER["SCRIPT_NAME"], '.php');
+        $page_object  = new Page($page_name);
+        echo($page_object->add_stylesheet());
+    ?>
     <title>Document</title>
 </head>
 <body>
     
-<header id="postsHeader">
+<header id="header">
         <h1><a href="../index.php">Regul Art</a></h1>
 
         <div class="searchBarDiv">

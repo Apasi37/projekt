@@ -17,9 +17,13 @@
         
             switch($this->page_name){
                 case 'home':
-                    $result .=  '
-                    <link rel="stylesheet" href="../assets/css/style.css">
-                    ';
+                    $result .= '<link rel="stylesheet" href="../assets/css/home.css">';
+                    break;
+                case 'posts':
+                    $result .= '<link rel="stylesheet" href="../assets/css/posts.css">';
+                    break;
+                case 'image':
+                    $result .= '<link rel="stylesheet" href="../assets/css/image.css">';
                     break;
             }
             return $result;

@@ -1,0 +1,32 @@
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.contentImages{
+    margin: 80px 10px 0px 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imageSmall{
+    margin: 5px;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(205, 221, 255);
+    border-radius: 10px;
+    transition: all 0.3s;
+    overflow: hidden;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.imageSmall:hover{
+    transform: scale(1.1,1.1);
+}
+
+.pagination{
+    text-align: center;
+    margin: 20px;
+}
