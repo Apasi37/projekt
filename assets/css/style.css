@@ -266,9 +266,8 @@ body{
 
 
 .content{
-    margin-top: 50px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .contentImages{
