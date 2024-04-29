@@ -17,6 +17,16 @@ class Posts extends Database {
         }   
     }
 
+    public function selectImage($imageId){
+        try{
+            $query =  $this->db->query("SELECT * FROM posts WHERE id=$imageId");
+            $qna = $query->fetchAll();
+            return $qna;
+        }catch(PDOException $e){
+            echo($e->getMessage());
+        }   
+    }
+
 }
 
 ?>

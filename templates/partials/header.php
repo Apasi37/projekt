@@ -16,7 +16,7 @@
         </div>
 
         <nav>
-            <a href="posts.html" class="aButton">Posts</a>
+            <a href="posts.php" class="aButton">Posts</a>
             <div class="aButton" onclick="toggleUser()">
                 Switch User
             </div>

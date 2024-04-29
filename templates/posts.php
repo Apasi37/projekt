@@ -13,7 +13,7 @@
                 $posts = $posts_class->select();
 
                 for ($i=0;$i<count($posts);$i++){
-                    echo '<div><a>';
+                    echo '<div><a href="image.php?id='.$posts[$i]->id.'">';
                     echo '<img src="'.$posts[$i]->image.'" alt="image" class="imageSmall">';
                     echo '</a></div>';
                 }
