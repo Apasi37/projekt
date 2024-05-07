@@ -30,7 +30,7 @@
         }
 
         function add_scripts(){
-            $result = '<script src="javaScript/header.js"></script>';
+            $result = '<script src="../assets/js/header.js"></script>';
             switch($this->page_name){
             case 'home':
                 $result .= '<script src="../assets/js/indexFadeIn.js"></script>';

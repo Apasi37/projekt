@@ -25,7 +25,9 @@
             </div>
             <div id="imageInfo">
                 <div id="imageArtist">
-                    <h1>Image name</h1>
+                    <?php
+                        echo('<h1>'.$posts[0]->name.'</h1>');
+                    ?>
                     <div class="profile" >
                         <div>
                             Artist: UserName
@@ -34,8 +36,7 @@
                     </div>
                 </div>
                 <div id="imageRatings">
-                    <div>150.9K Views</div>
-                    <div>65K Likes</div>
+                    <div>0 Likes</div>
                 </div>
                 <div id="imageDesc">
                     <div id="desc">
@@ -44,7 +45,7 @@
                 </div>
                 <div id="imageComments">
                     <div id="commentCount">
-                        Comments: 99
+                        Comments: 0
                     </div>
                     <div class="comments">
                         <div class="comment">
@@ -74,16 +75,9 @@
                     <img src="../assets/img/cat1.jpg" alt="" class="imageSmaller"> 
                 </a>  
             </div>
-        </div>
-
-        
+        </div>  
     </div>
-
+</div>
     <?php
     include_once('partials/footer.php');
     ?>
-
-    <script src="javaScript/header.js"></script>
-    <script src="javaScript/picture.js"></script>
-</body>
-</html>

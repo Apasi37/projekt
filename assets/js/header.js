@@ -5,12 +5,6 @@ function toggleUser(){
     notLoggedIn.classList.toggle("active");
 }
 
-
-var profileMenu = document.getElementById("profileMenu");
-function toggleProfileMenu(){
-    profileMenu.classList.toggle("active");
-}
-
 var overlay = document.getElementById("overlay")
 var login = document.getElementById("logIn")
 var signup = document.getElementById("signUp")
