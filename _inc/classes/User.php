@@ -32,11 +32,11 @@ class User extends Database {
         }
     }
 
-    public function login($username, $password){
+    public function login($email, $password){
         //$username a $password došli z $_POST 
         try{
             $data = array(
-                'email'=>$username,
+                'email'=>$email,
                 'password'=>$password,
             );
             
@@ -45,8 +45,10 @@ class User extends Database {
             $query_run->execute($data);
             if($query_run->rowCount() == 1) {
                 // login je uspesny
+                $user = $query_run->fetch(PDO::FETCH_ASSOC);
                 $_SESSION['logged_in'] = true;
-                $_SESSION['is_admin'] = $query_run->fetch()->role;
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
                 return true;
             } else {
                 return false;
