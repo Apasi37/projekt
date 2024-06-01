@@ -25,6 +25,9 @@
                 case 'image':
                     $result .= '<link rel="stylesheet" href="../assets/css/image.css">';
                     break;
+                case 'admin':
+                    $result .= '<link rel="stylesheet" href="../assets/css/admin.css">';
+                    break;
             }
             return $result;
         }

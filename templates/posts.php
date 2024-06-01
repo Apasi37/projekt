@@ -1,20 +1,17 @@
 <?php
     include_once('partials/header.php');
-    require_once('../_inc/classes/Database.php');
-    require_once('../_inc/classes/Page.php');
     require_once('../_inc/classes/Posts.php');
-    require_once('../_inc/functions.php');
 ?>
 
     <div class="content">
         <div class="contentImages">
             <?php
                 $posts_class = new Posts();
-                $posts = $posts_class->select();
+                $posts = $posts_class->selectTable("posts");
 
                 for ($i=0;$i<count($posts);$i++){
-                    echo '<div><a href="image.php?id='.$posts[$i]->id.'">';
-                    echo '<img src="'.$posts[$i]->image.'" alt="image" class="imageSmall">';
+                    echo '<div><a href="image.php?id='.$posts[$i]["id"].'">';
+                    echo '<img src="../assets/img/'.$posts[$i]["image"].'" alt="image" class="imageSmall">';
                     echo '</a></div>';
                 }
             ?>

@@ -17,7 +17,7 @@
                     echo('<a href="image.php?id='.($imgId-1).'"><</a>');
                     echo('
                         <div>
-                            <img src="'.$posts[0]->image.'" alt="" class="image">
+                            <img src="../assets/img/'.$posts[0]->image.'" alt="" class="image">
                         </div>
                     ');
                     echo('<a href="image.php?id='.($imgId+1).'">></a>');

@@ -1,0 +1,41 @@
+#admin_panel{
+    display: flex;
+    background-color: rgb(46, 53, 65); 
+    align-self: center;
+    margin: auto;
+    flex-direction: row;
+    margin-top: 80px;
+    width:fit-content;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#admin_tables{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    background-color: rgb(56, 64, 77);
+    border-radius: 5px;
+}
+#admin_tables h1{
+    color: rgb(205, 221, 255);
+    margin: 5px;
+}
+#admin_tableContent{
+    background-color: rgb(25, 28, 32);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.admin_column{
+    background-color: rgb(205, 205, 255);
+    padding: 5px;
+}
+.admin_row{
+    background-color: white;
+    padding: 5px;
+}
+
+#admin_popup{
+    display: none;
+}
