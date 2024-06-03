@@ -7,7 +7,7 @@
         <div class="contentImages">
             <?php
                 $posts_class = new Posts();
-                $posts = $posts_class->selectTable("posts");
+                $posts = $posts_class->selectPosts($_GET['page']);
 
                 for ($i=0;$i<count($posts);$i++){
                     echo '<div><a href="image.php?id='.$posts[$i]["id"].'">';
@@ -18,14 +18,13 @@
         </div>
 
         <div class="pagination">
-                <a href="" class="aButton"><</a>
-                <a href="" class="aButton">1</a>
-                <a href="" class="aButton">2</a>
-                <a href="" class="aButton">3</a>
-                <a href="" class="aButton">4</a>
-                <a href="" class="aButton">5</a>
-                <a href="" class="aButton">></a>
-            </div>
+            <?php
+                $pages = $posts_class->getPages();
+                for($i=1;$i<=$pages;$i++){
+                    echo('<a href="posts.php?page='.$i.'" class="aButton">'.$i.'</a>');
+                }
+            ?>
+        </div>
     </div>
 
 <?php

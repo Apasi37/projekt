@@ -6,20 +6,29 @@ class User extends Database {
         $this->db = $this->connect();
     }
 
-    public function register($email, $password){
+    public function register($email, $username, $password){
         try{
-         
-            $hashed_password = $password;
+            $data = array(
+                'email'=>$email,
+            );
+            
+            $sql = "SELECT * FROM user WHERE email = :email";
+            $query_run = $this->db->prepare($sql);
+            $query_run->execute($data);
+            if($query_run->rowCount() == 1) {
+                return false;
+            }
     
             // Dáta pre vloženie nového používateľa do databázy
             $data = array(
                 'email' => $email,
-                'password' => md5($hashed_password),
-                'role'=>'0'
+                'username' => $username,
+                'password' => password_hash($password, PASSWORD_DEFAULT),
+                'role'=>'user'
             );
     
             // SQL dopyt na vloženie nového používateľa
-            $sql = "INSERT INTO user (email, password,role) VALUES (:email, :password, :role)";
+            $sql = "INSERT INTO user (username, email, password,role) VALUES (:username, :email, :password, :role)";
             $query_run = $this->db->prepare($sql);
             $query_run->execute($data);
     
@@ -37,19 +46,21 @@ class User extends Database {
         try{
             $data = array(
                 'email'=>$email,
-                'password'=>$password,
             );
             
-            $sql = "SELECT * FROM user WHERE email = :email AND password = :password";
+            $sql = "SELECT * FROM user WHERE email = :email";
             $query_run = $this->db->prepare($sql);
             $query_run->execute($data);
             if($query_run->rowCount() == 1) {
-                // login je uspesny
                 $user = $query_run->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['logged_in'] = true;
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['role'] = $user['role'];
-                return true;
+                if(password_verify($password, $user['password'])){
+                    $_SESSION['logged_in'] = true;
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['userId'] = $user['id'];
+                    return true;
+                }
+                return false;
             } else {
                 return false;
             }

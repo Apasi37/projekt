@@ -1,13 +1,15 @@
 <?php
     include_once('partials/header.php');
-    require_once('../_inc/classes/Database.php');
-    require_once('../_inc/classes/Page.php');
-    require_once('../_inc/classes/Posts.php');
-    require_once('../_inc/functions.php');
 
     $imgId = $_GET["id"];
     $posts_class = new Posts();
-    $posts = $posts_class->selectImage($imgId);
+    $post = $posts_class->selectPost($imgId);
+    if($post == false){
+        header('location: posts.php?page=1');
+    }
+    $username = $posts_class->selectUsername($post['userId']);
+    $comments = $posts_class->selectComments($imgId);
+    $commentCount = $posts_class->getCommentCount($imgId);
 ?>
 
 <div class="imageContent">
@@ -17,67 +19,95 @@
                     echo('<a href="image.php?id='.($imgId-1).'"><</a>');
                     echo('
                         <div>
-                            <img src="../assets/img/'.$posts[0]->image.'" alt="" class="image">
+                            <img src="../assets/img/'.$post['image'].'" alt="" class="image">
                         </div>
                     ');
                     echo('<a href="image.php?id='.($imgId+1).'">></a>');
                 ?>
             </div>
             <div id="imageInfo">
+
                 <div id="imageArtist">
                     <?php
-                        echo('<h1>'.$posts[0]->name.'</h1>');
+                        echo('<h1>'.$post['name'].'</h1>');
                     ?>
                     <div class="profile" >
-                        <div>
-                            Artist: UserName
-                        </div>
                         <img src="../assets/img/defaultprofile.png" alt="IMAGE">
+                        <?php
+                            echo('<div>'.$username->username.'</div>');
+                        ?>
                     </div>
                 </div>
+
                 <div id="imageRatings">
-                    <div>0 Likes</div>
+                    
                 </div>
+
                 <div id="imageDesc">
                     <div id="desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nostrum ex sequi labore quibusdam exercitationem eius. Sunt temporibus fugiat fugit? Eos beatae laborum odit temporibus quos numquam natus, ipsum aliquam.
+                        <?php
+                        if($post['description'] == null || $post['description'] == ""){
+                            echo('No description');
+                        }else{
+                            echo($post['description']);
+                        }
+                        ?>
                     </div>
                 </div>
+
                 <div id="imageComments">
                     <div id="commentCount">
-                        Comments: 0
+                        <?php
+                            echo('Comments: '.$commentCount->count);
+                        ?>
                     </div>
+                    <?php
+                        if(isset($_SESSION['username'])){
+                            echo('
+                                <form method="POST" id="commentWrite">
+                                    <input type="text" name="comment" placeholder="Write a comment" class="searchBar" required>
+                                    <input type="submit" name="addComment" value="Comment" class="button">
+                                </form>
+                            ');
+                        }else{
+                            echo('<div>You need to be logged in to wirte a comment</div>');
+                        }
+
+                        if(isset($_POST['addComment'])){
+                            $posts_class->addComment($_POST['comment'],$_SESSION['userId'],$imgId);
+                            header('location: image.php?id='.$imgId);
+                        }
+                    ?>
                     <div class="comments">
-                        <div class="comment">
-                            <div class="commentProfile">
-                                <div class="commentToggle" onclick="COMMENT(n=0)">
-                                    -
-                                </div>
-                                <div class="profile" >
-                                    <img src="../assets/img/defaultprofile.png" alt="IMAGE">
-                                    <div>
-                                        UserName
+                        <?php
+                            for($i=0;$i<count($comments);$i++){
+                                $commentUsername = $posts_class->selectCommentUsername($comments[$i]['userId']);
+                                echo('
+                                    <div class="comment">
+
+                                        <div class="commentProfile">
+                                            <div class="profile" >
+                                                <img src="../assets/img/defaultprofile.png" alt="IMAGE">
+                                                <div>'.$commentUsername->username.'</div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="commentText">'.$comments[$i]['comment'].'</div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="commentText">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptates at? Quia repellat, dolorem earum dicta doloribus cupiditate nostrum voluptas sit impedit eius ut voluptatibus id pariatur tempore illum culpa.
-                            </div>
-                        </div>
+                                ');
+                            }
+                        ?>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="imageRecomended">
-            <h1>Recomended</h1>
-            <div id="recomended">
-                <a href="picture.html">
-                    <img src="../assets/img/cat1.jpg" alt="" class="imageSmaller"> 
-                </a>  
-            </div>
+            
         </div>  
     </div>
 </div>
-    <?php
+
+<?php
     include_once('partials/footer.php');
-    ?>
+?>

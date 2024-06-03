@@ -2,6 +2,7 @@
     require_once('../_inc/classes/Page.php');
     require_once('../_inc/classes/Database.php');
     require_once('../_inc/classes/User.php');
+    require_once('../_inc/classes/Posts.php');
     session_start();
 ?>
 
@@ -15,7 +16,7 @@
         $page_name = basename($_SERVER["SCRIPT_NAME"], '.php');
         $page_object  = new Page($page_name);
         echo($page_object->add_stylesheet());
-        echo('<title>Moj web | '. $page_name.'.php</title>')
+        echo('<title>Regulart | '. $page_name.'.php</title>')
     ?>
     
 </head>
@@ -29,7 +30,7 @@
         </div>
 
         <nav>
-            <a href="posts.php" class="aButton">Posts</a>
+            <a href="posts.php?page=1" class="aButton">Posts</a>
         </nav>
 
         <?php
@@ -41,10 +42,14 @@
                 </div>
 
                 <div id="profileMenu">
-                    <a href="" class="aButton">Profile</a>
                     <a href="./logout.php" class="aButton">Log Out</a>
-                </div>
             ');
+            if(isset($_SESSION['role']) && $_SESSION['role'] == "admin"){
+                echo('
+                    <a class="aButton" href="./admin.php?selectedTable=posts">admin panel</a>
+                ');
+            }
+            echo('</div>');
         }else{
             echo('
                 <div id="notLoggedIn">

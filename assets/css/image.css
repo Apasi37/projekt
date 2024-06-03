@@ -21,13 +21,14 @@
     padding: 20px;
     cursor: pointer;
     margin: 20px;
+    text-decoration: none;
 }
 
 .image{
     margin-top: 80px;
     margin-bottom: 20px;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 800px;
+    max-height: 800px;
 }
 
 #imageInfo{
@@ -68,14 +69,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 
 #desc{
     width: 50%;
     min-width: 500px;
-    margin-top: 50px;
-    margin-bottom: 50px;
     color: rgb(205, 221, 255);
+    background-color: rgb(25, 28, 32);
+    padding: 10px;
+    border-radius: 5px; 
 }
 
 #imageComments{
@@ -95,6 +98,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 70%;
+    margin: 20px;
 }
 
 .comment{
@@ -131,6 +136,7 @@
 .imageRecomended{
     background-color: rgb(62, 73, 87);
     width: 20%;
+    margin-top: 50px;
 }
 
 .imageRecomended h1{
@@ -157,4 +163,8 @@
 
 .imageSmaller:hover{
     transform: scale(1.1,1.1);
+}
+
+#commentWrite{
+    margin-top: 20px;
 }

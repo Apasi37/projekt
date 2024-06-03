@@ -4,7 +4,7 @@
     <a href="aboutUs.html">About us</a>
     </div>
     <div>
-        <p>Copyright &copy 2023 RegulArt All Rights Reserved</p>
+        <p>Copyright &copy 2024 RegulArt All Rights Reserved</p>
     </div>
     <div id="contact">
         <h2>Contact</h2>

@@ -23,7 +23,7 @@
             <input type="text" class="searchBar" placeholder="Search...">
         </div>
         <nav>
-            <a href="posts.php" class="aButton">Posts</a>
+            <a href="posts.php?page=1" class="aButton">Posts</a>
         </nav>
         <div id="homeProfile">
             <?php
@@ -41,7 +41,7 @@
                 }
                 if(isset($_SESSION['role']) && $_SESSION['role'] == "admin"){
                     echo('
-                        <a class="aButton" href="./admin.php">admin panel</a>
+                        <a class="aButton" href="./admin.php?selectedTable=posts">admin panel</a>
                     ');
                 }
             ?>

@@ -240,6 +240,24 @@ footer{
     color: rgb(205, 221, 255);
 }
 
+.button{
+    background-color: rgb(138, 138, 173);
+  border: none;
+  color: black;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.button:hover{
+    background-color: rgb(224, 225, 255);
+}
+
 @media screen and (max-width: 1000px) {
     header{
         flex-direction: column;

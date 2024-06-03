@@ -39,7 +39,10 @@
                 $result .= '<script src="../assets/js/indexFadeIn.js"></script>';
                 break;
             case 'posts':
-                $result .= '<script src="javaScript/posts.js"></script>';
+                $result .= '<script src="../assets/js/posts.js"></script>';
+                break;
+            case 'admin':
+                $result .= '<script src="../assets/js/admin.js"></script>';
                 break;
             }
             return $result;

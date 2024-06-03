@@ -15,4 +15,20 @@ include_once('partials/header.php');
         <input type="checkbox" id="checkbox" required>
         <input type="submit" name="user_register" value="Register">
     </form>
+    <?php
+        if(isset($_POST['user_register'])){
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            
+            $user = new User();
+            $register = $user->register($email,$username,$password);
+            if($register == true){
+                header('Location: login.php');
+                exit;
+            }else{
+                echo 'Nesprávne meno alebo heslo';
+            }
+        }
+    ?>
 </div>
